@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://7sxyv5uxwgp5"]
+
+[ext_resource type="PackedScene" uid="uid://cmp8x5oriepd4" path="res://assets/placables/Kitchen/boxstanding_food.blend" id="1_fea01"]
+[ext_resource type="Script" path="res://systems/interaction/eat.gd" id="2_efki5"]
+[ext_resource type="Script" path="res://systems/interaction/Interactable.gd" id="3_1pv3m"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dndt7"]
+data = PackedVector3Array(0.3, -0.4, 0.1, -0.3, 0.4, 0.1, 0.3, 0.4, 0.1, 0.3, -0.4, 0.1, -0.3, -0.4, 0.1, -0.3, 0.4, 0.1, -0.3, -0.4, 0.1, -0.3, 0.4, -0.1, -0.3, 0.4, 0.1, -0.3, -0.4, 0.1, -0.3, -0.4, -0.1, -0.3, 0.4, -0.1, -0.3, -0.4, -0.1, 0.3, 0.4, -0.1, -0.3, 0.4, -0.1, -0.3, -0.4, -0.1, 0.3, -0.4, -0.1, 0.3, 0.4, -0.1, 0.3, -0.4, -0.1, 0.3, 0.4, 0.1, 0.3, 0.4, -0.1, 0.3, -0.4, -0.1, 0.3, -0.4, 0.1, 0.3, 0.4, 0.1, -0.3, -0.4, 0.1, 0.3, -0.4, -0.1, -0.3, -0.4, -0.1, -0.3, -0.4, 0.1, 0.3, -0.4, 0.1, 0.3, -0.4, -0.1, -0.3, 0.4, -0.1, 0.3, 0.4, 0.1, -0.3, 0.4, 0.1, -0.3, 0.4, -0.1, 0.3, 0.4, -0.1, 0.3, 0.4, 0.1)
+
+[node name="boxstanding_food" instance=ExtResource("1_fea01")]
+script = ExtResource("2_efki5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+script = ExtResource("3_1pv3m")
+prompt_message = "Eat"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_dndt7")
+
+[connection signal="interacted" from="Cube/StaticBody3D" to="." method="eat"]

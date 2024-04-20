@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bghpkvsfha3kr"
+path="res://.godot/imported/20 - birds.mp3-4f34f6c6c0f806ba6796e7239cee7026.mp3str"
+
+[deps]
+
+source_file="res://assets/tilesets/forest/20 - birds.mp3"
+dest_files=["res://.godot/imported/20 - birds.mp3-4f34f6c6c0f806ba6796e7239cee7026.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

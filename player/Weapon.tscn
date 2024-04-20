@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp7xmcvmtp5cf"]
+
+[ext_resource type="Script" path="res://systems/resources/init_weapon.gd" id="1_mfsex"]
+[ext_resource type="ArrayMesh" uid="uid://fvmj6rmcituc" path="res://player/holdable/crowbar/Crowbar_Cube.res" id="2_6yrjp"]
+[ext_resource type="Resource" uid="uid://sbxbbammexrv" path="res://player/holdable/crowbar/crowbar.tres" id="2_pa1us"]
+
+[node name="Weapon" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.688, -0.583, -0.996)
+script = ExtResource("1_mfsex")
+WEAPON_TYPE = ExtResource("2_pa1us")
+
+[node name="WeaponMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = ExtResource("2_6yrjp")
+
+[node name="WeaponShadow" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="WeaponAnimation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true

@@ -1,0 +1,5 @@
+res://player/Weapon.tscn
+res://assets/tilesets/ice_palace_shaders/ice_palace_floor.gdshader
+res://systems/resources/init_weapon.gd
+res://assets/tilesets/ice_palace/ice_palace.tscn
+res://player/player.gd

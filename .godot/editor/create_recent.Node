@@ -1,0 +1,14 @@
+AudioStreamPlayer3D
+AnimationPlayer
+CollisionShape3D
+CharacterBody3D
+StaticBody3D
+Node
+DirectionalLight3D
+MeshInstance3D
+AnimationTree
+Node3D
+Label
+TextureRect
+RayCast3D
+FogVolume

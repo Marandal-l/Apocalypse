@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3iu8y52jltab"
+path="res://.godot/imported/27 - Crows Caw in Field.mp3-5df1b60b645fb6f6a0f0d2d18e8c1fe5.mp3str"
+
+[deps]
+
+source_file="res://assets/tilesets/forest/27 - Crows Caw in Field.mp3"
+dest_files=["res://.godot/imported/27 - Crows Caw in Field.mp3-5df1b60b645fb6f6a0f0d2d18e8c1fe5.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

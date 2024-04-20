@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://babcm2uvdv3fa"]
+
+[ext_resource type="Script" path="res://systems/interaction/Interactable.gd" id="1_2xfe1"]
+[ext_resource type="PackedScene" uid="uid://b56xw2kgmxo3j" path="res://assets/doors_and_buttons/Button.blend" id="1_3cclt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fopdb"]
+size = Vector3(0.501129, 0.486999, 0.320678)
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_2xfe1")
+prompt_message = null
+prompt_action = null
+
+[node name="Button" parent="." instance=ExtResource("1_3cclt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00456446, -0.00945374, 0.156016)
+shape = SubResource("BoxShape3D_fopdb")

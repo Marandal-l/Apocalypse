@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ex767384xc5"]
+
+[ext_resource type="PackedScene" uid="uid://b5ogr1ulvsjps" path="res://player/holdable/crowbar/Crowbar.blend" id="1_k7umu"]
+
+[node name="Crowbar" instance=ExtResource("1_k7umu")]

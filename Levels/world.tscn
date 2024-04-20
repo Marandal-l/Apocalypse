@@ -1,0 +1,448 @@
+[gd_scene load_steps=19 format=3 uid="uid://d0uyyoupgubr1"]
+
+[ext_resource type="PackedScene" uid="uid://dcblx8gcgrfxi" path="res://assets/tilesets/ice_palace/ice_palace.tscn" id="1_a3j8d"]
+[ext_resource type="AudioStream" uid="uid://bghpkvsfha3kr" path="res://assets/tilesets/forest/20 - birds.mp3" id="1_h10pj"]
+[ext_resource type="PackedScene" uid="uid://d1bk4wijbog57" path="res://assets/tilesets/forest/forest01.glb" id="3_vcq0q"]
+[ext_resource type="PackedScene" uid="uid://dtsq504hwea6k" path="res://assets/tilesets/forest/forest02.glb" id="4_mg1mx"]
+[ext_resource type="PackedScene" uid="uid://1x2f0ojo182k" path="res://assets/tilesets/forest/forest03.glb" id="5_i13wk"]
+[ext_resource type="PackedScene" uid="uid://fe6t8t1shin0" path="res://assets/tilesets/forest/forest_cliff01.glb" id="6_egj6s"]
+[ext_resource type="PackedScene" uid="uid://33tk0da023y8" path="res://assets/tilesets/forest/forest_cliff02.glb" id="7_mmxfp"]
+[ext_resource type="PackedScene" uid="uid://cu0tltpak2mkf" path="res://assets/tilesets/forest/forest_cliff_inner01.glb" id="8_odni1"]
+[ext_resource type="PackedScene" uid="uid://dhbygnlkh3e12" path="res://assets/tilesets/forest/forest_cliff_outer01.glb" id="9_hl3aa"]
+[ext_resource type="PackedScene" uid="uid://babcm2uvdv3fa" path="res://assets/doors_and_buttons/button.tscn" id="11_ejiaa"]
+[ext_resource type="PackedScene" uid="uid://c4j2v00ojc5le" path="res://assets/doors_and_buttons/door.tscn" id="12_ei06s"]
+[ext_resource type="PackedScene" uid="uid://7sxyv5uxwgp5" path="res://assets/placables/Kitchen/boxstanding_food.tscn" id="13_tpngf"]
+[ext_resource type="PackedScene" uid="uid://d24mp8cxnugb3" path="res://player/player.tscn" id="16_e4pff"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p26ue"]
+size = Vector3(40, 1, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_chyyp"]
+data = PackedVector3Array(-20, 0.5, 10, 20, 0.5, 10, -20, -0.5, 10, 20, 0.5, 10, 20, -0.5, 10, -20, -0.5, 10, 20, 0.5, -10, -20, 0.5, -10, 20, -0.5, -10, -20, 0.5, -10, -20, -0.5, -10, 20, -0.5, -10, 20, 0.5, 10, 20, 0.5, -10, 20, -0.5, 10, 20, 0.5, -10, 20, -0.5, -10, 20, -0.5, 10, -20, 0.5, -10, -20, 0.5, 10, -20, -0.5, -10, -20, 0.5, 10, -20, -0.5, 10, -20, -0.5, -10, 20, 0.5, 10, -20, 0.5, 10, 20, 0.5, -10, -20, 0.5, 10, -20, 0.5, -10, 20, 0.5, -10, -20, -0.5, 10, 20, -0.5, 10, -20, -0.5, -10, 20, -0.5, 10, 20, -0.5, -10, -20, -0.5, -10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpncl"]
+sky_top_color = Color(0.576471, 0.423529, 0.266667, 1)
+sky_horizon_color = Color(0.781373, 0.72549, 0.662745, 1)
+ground_bottom_color = Color(0.54902, 0.478431, 0.384314, 1)
+ground_horizon_color = Color(0.781373, 0.72549, 0.662745, 1)
+
+[sub_resource type="Sky" id="Sky_3hfwi"]
+sky_material = SubResource("ProceduralSkyMaterial_hpncl")
+
+[sub_resource type="Environment" id="Environment_lxvdj"]
+background_mode = 2
+sky = SubResource("Sky_3hfwi")
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.133333, 0.364706, 0.462745, 1)
+fog_density = 0.0311
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.26567, 0)
+
+[node name="Node3D TILES" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3, -16)
+
+[node name="forest" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest4" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest2" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest5" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest6" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest3" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest14" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest20" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest25" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest26" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest19" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest21" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest22" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest23" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest07" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest08" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 8, -30)
+metadata/_edit_lock_ = true
+
+[node name="forest09" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -7, -5, 3)
+metadata/_edit_lock_ = true
+
+[node name="forest16" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest27" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, 3)
+metadata/_edit_lock_ = true
+
+[node name="forest28" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -63, 4, -17)
+metadata/_edit_lock_ = true
+
+[node name="forest29" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -59, 0, -30)
+metadata/_edit_lock_ = true
+
+[node name="forest30" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -46, 8, -32)
+metadata/_edit_lock_ = true
+
+[node name="forest31" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -63, 9, -37)
+metadata/_edit_lock_ = true
+
+[node name="forest32" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -31, -1, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest18" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest33" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -52)
+metadata/_edit_lock_ = true
+
+[node name="forest34" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 21, 0, -43)
+metadata/_edit_lock_ = true
+
+[node name="forest35" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -19, 0, -51)
+metadata/_edit_lock_ = true
+
+[node name="forest36" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 32, 5, -12)
+metadata/_edit_lock_ = true
+
+[node name="forest37" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 31, 2.38419e-07, -30)
+metadata/_edit_lock_ = true
+
+[node name="forest38" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 31, 2.38419e-07, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest39" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -5, -12, 22)
+metadata/_edit_lock_ = true
+
+[node name="forest03" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest05" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -25, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest04" parent="Node3D TILES" instance=ExtResource("4_mg1mx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest10" parent="Node3D TILES" instance=ExtResource("5_i13wk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff01" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff02" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner01" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner08" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner10" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner11" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -25, 0, 45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner12" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -25, 0, 35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner09" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 25, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner13" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff08" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff09" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff10" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest11" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest12" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest17" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest24" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest15" parent="Node3D TILES" instance=ExtResource("3_vcq0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff14" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff16" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff18" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff19" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff24" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff27" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 5, 0, 35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner06" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner07" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 10, -45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer01" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer05" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer04" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 10, -45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer03" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 10, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff04" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff11" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, -45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff12" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 10, -45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff06" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff07" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55, 0, -15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff17" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55, 0, -5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff23" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55, 0, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff26" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55, 0, 15)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff28" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner02" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner04" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_inner03" parent="Node3D TILES" instance=ExtResource("8_odni1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer02" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer08" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 25, 10, 5)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer09" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 2.38419e-07, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer10" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, 2.38419e-07, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff_outer11" parent="Node3D TILES" instance=ExtResource("9_hl3aa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 2.38419e-07, 35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff03" parent="Node3D TILES" instance=ExtResource("7_mmxfp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, -25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff05" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -35)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff13" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 10, -45)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff20" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -45, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff21" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="forest_cliff22" parent="Node3D TILES" instance=ExtResource("6_egj6s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, 25)
+metadata/_edit_lock_ = true
+
+[node name="World" type="Node" parent="."]
+
+[node name="WorldAudio" type="AudioStreamPlayer" parent="World"]
+stream = ExtResource("1_h10pj")
+volume_db = -19.675
+autoplay = true
+
+[node name="01 Start" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24839, -37.737, 30.0892)
+visible = false
+mesh = SubResource("BoxMesh_p26ue")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/01 Start"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/01 Start/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_chyyp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_lxvdj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(-0.866024, -0.433016, 0.25, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 10, 17.6992, 22)
+light_color = Color(0.305882, 0.505882, 0.643137, 1)
+light_energy = 1.808
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("16_e4pff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0778, 14.2208, -15.2167)
+
+[node name="IcePalace2" parent="." instance=ExtResource("1_a3j8d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.12089, -62.0303, 31)
+visible = false
+
+[node name="Button" parent="." instance=ExtResource("11_ejiaa")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 38, 14.2657, -22)
+prompt_message = "Launch Nuke"
+prompt_action = "interact"
+
+[node name="DoorButton" parent="." instance=ExtResource("11_ejiaa")]
+transform = Transform3D(0.998201, 0, 0.059951, 0, 1, 0, -0.059951, 0, 0.998201, 40.7558, 14.8803, -22.2084)
+prompt_message = "Push"
+prompt_action = "interact"
+
+[node name="Door" parent="." instance=ExtResource("12_ei06s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1999, 12.9271, -22.1465)
+
+[node name="boxstanding_food" parent="." instance=ExtResource("13_tpngf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4227, 14.2854, -18.9546)
+
+[connection signal="interacted" from="DoorButton" to="Door" method="toggle_door"]

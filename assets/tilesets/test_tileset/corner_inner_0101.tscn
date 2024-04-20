@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbspft0btkv8a"]
+
+[ext_resource type="PackedScene" uid="uid://dus5a7unwrr6o" path="res://assets/tilesets/base_interior/corner_inner0101.glb" id="1_rwjnr"]
+
+[node name="corner_inner0101" instance=ExtResource("1_rwjnr")]

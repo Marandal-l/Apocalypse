@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://c4j2v00ojc5le"]
+
+[ext_resource type="PackedScene" uid="uid://crcbqtsxlqpsl" path="res://assets/doors_and_buttons/Door.blend" id="1_4oqnl"]
+[ext_resource type="Script" path="res://systems/interaction/door.gd" id="1_epjtr"]
+[ext_resource type="Script" path="res://systems/interaction/Interactable.gd" id="1_h8ogx"]
+[ext_resource type="AudioStream" uid="uid://ctgi3xwiq4cj2" path="res://assets/audio/kenneydoorOpen_2.mp3" id="4_jsqvi"]
+[ext_resource type="AudioStream" uid="uid://c7mn3div1b2k" path="res://assets/audio/kenneydoorClose_4.mp3" id="5_5n4dx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1dgm5"]
+size = Vector3(2.5, 4, 0.196655)
+
+[sub_resource type="Animation" id="Animation_5bume"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kdml0"]
+resource_name = "door_close"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.53528, 0), Vector3(0, 1.36004, 0), Vector3(0, 0.0636731, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jysr4"]
+resource_name = "door_open"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.110919, 0), Vector3(0, 1.53528, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vf7um"]
+_data = {
+"RESET": SubResource("Animation_5bume"),
+"door_close": SubResource("Animation_kdml0"),
+"door_open": SubResource("Animation_jysr4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npb72"]
+animation = &"door_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7w776"]
+animation = &"door_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u85is"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qctoa"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eag05"]
+states/End/position = Vector2(643, 42)
+states/Start/position = Vector2(345, 42)
+states/door_close/node = SubResource("AnimationNodeAnimation_npb72")
+states/door_close/position = Vector2(710, 124)
+states/door_open/node = SubResource("AnimationNodeAnimation_7w776")
+states/door_open/position = Vector2(313, 124)
+transitions = ["door_open", "door_close", SubResource("AnimationNodeStateMachineTransition_u85is"), "door_close", "door_open", SubResource("AnimationNodeStateMachineTransition_qctoa")]
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_epjtr")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="Door Model" parent="Hinge" instance=ExtResource("1_4oqnl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge"]
+script = ExtResource("1_h8ogx")
+prompt_message = "Door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 2, 0)
+shape = SubResource("BoxShape3D_1dgm5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vf7um")
+}
+autoplay = "door_close"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eag05")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_jsqvi")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_5n4dx")
+
+[connection signal="interacted" from="Hinge/StaticBody3D" to="." method="toggle_door"]
